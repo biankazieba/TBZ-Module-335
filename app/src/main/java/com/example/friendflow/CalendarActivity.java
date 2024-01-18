@@ -18,5 +18,13 @@ public class CalendarActivity extends AppCompatActivity {
         backButton.setOnClickListener(v -> {
             finish();
         });
+
+        ImageButton button = findViewById(R.id.addButton);
+
+        Intent intent = new Intent(CalendarActivity.this, AppointmentActivity.class);
+
+        button.setOnClickListener(v -> {
+            startActivity(intent);
+        });
     }
 }
