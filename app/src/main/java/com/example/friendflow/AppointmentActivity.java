@@ -54,6 +54,10 @@ public class AppointmentActivity extends AppCompatActivity {
 
                 result.setText("Title:\t" + title + "\nDate:\t" + date + "Fromtime:\t" + fromTime + "Tilltme:\t" + tillTime);
 
+                tasktitle.setText("");
+                taskdate.setText("");
+                fromtime.setText("");
+                tilltime.setText("");
             }
         });
     }
