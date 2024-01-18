@@ -101,7 +101,7 @@
                 android:weekNumberColor="@color/pink" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/weekday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -112,7 +112,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
