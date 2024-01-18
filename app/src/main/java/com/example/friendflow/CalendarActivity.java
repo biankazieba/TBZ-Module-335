@@ -1,6 +1,8 @@
 package com.example.friendflow;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.ImageButton;
@@ -25,6 +27,14 @@ public class CalendarActivity extends AppCompatActivity {
         CalendarView calendarView = findViewById(R.id.calendarView);
 
         backButton.setOnClickListener(v -> finish());
+
+        ImageButton button = findViewById(R.id.addButton);
+
+        Intent intent = new Intent(CalendarActivity.this, AppointmentActivity.class);
+
+        button.setOnClickListener(v -> {
+            startActivity(intent);
+        });
 
         Calendar today = Calendar.getInstance();
         updateTextViews(today);
