@@ -151,12 +151,20 @@
                     android:textSize="12dp" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/showtasktime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="15dp"
-                    android:text="08:10 - 16:40  Berufsschule" />
+                    android:text="08:10 - 16:40" />
+
+                <TextView
+                    android:id="@+id/showtasktitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Berufsschule" />
 
                 <ImageButton
                     android:id="@+id/imageButton"
