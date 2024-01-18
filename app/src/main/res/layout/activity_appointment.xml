@@ -4,6 +4,246 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AppointmentActivity">
+    tools:context=".CalendarActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#FFFFFF"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginBottom="18dp">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Logo"
+                    app:srcCompat="@drawable/logo" />
+
+                <ImageView
+                    android:id="@+id/slogan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="Slogan"
+                    app:srcCompat="@drawable/slogan" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:layout_editor_absoluteX="411dp">
+
+                        <ImageButton
+                            android:id="@+id/backButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#FFFFFF"
+                            android:src="@drawable/arrow"
+                            android:tint="#BF3F3E43" />
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </TableRow>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.386">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        app:srcCompat="@drawable/addtask" />
+
+                    <EditText
+                        android:id="@+id/editTextText2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="TITEL"
+                        android:inputType="text" />
+
+                    <EditText
+                        android:id="@+id/editTextDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="DATUM"
+                        android:inputType="datetime|date" />
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:id="@+id/editTextTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="5"
+                            android:hint="HH:MM"
+                            android:inputType="time" />
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="18dp"
+                            android:layout_marginRight="10dp"
+                            android:backgroundTint="@color/pink"
+                            app:srcCompat="@android:drawable/divider_horizontal_textfield" />
+
+                        <EditText
+                            android:id="@+id/editTextTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="5"
+                            android:hint="HH:MM"
+                            android:inputType="time" />
+
+                    </TableRow>
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginBottom="13dp"
+                        android:text="LABELS"
+                        android:textColor="@color/grey"
+                        android:textSize="16dp" />
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/button2"
+                            android:layout_width="78dp"
+                            android:layout_height="36dp"
+                            android:layout_marginRight="15dp"
+                            android:backgroundTint="@color/pink"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="0dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="0dp"
+                            android:text="NINA"
+                            android:textSize="12dp" />
+
+                        <Button
+                            android:id="@+id/button2"
+                            android:layout_width="78dp"
+                            android:layout_height="36dp"
+                            android:layout_marginRight="15dp"
+                            android:backgroundTint="@color/lightPink"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="0dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="0dp"
+                            android:text="BIANKA"
+                            android:textSize="12dp" />
+
+                        <Button
+                            android:id="@+id/button2"
+                            android:layout_width="78dp"
+                            android:layout_height="36dp"
+                            android:layout_marginRight="15dp"
+                            android:backgroundTint="@color/middlepink"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="0dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="0dp"
+                            android:text="LUANA"
+                            android:textSize="12dp" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/openPopup"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/imageButton2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:paddingLeft="0dp"
+                            android:paddingTop="15dp"
+                            android:paddingRight="0dp"
+                            android:src="@drawable/add"
+                            app:tint="@color/grey" />
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="13dp"
+                            android:text="Weiteres Label hinzufügen"
+                            android:textColor="@color/grey" />
+                    </TableRow>
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@color/lightPink"
+                        android:text="ERSTELLEN" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
