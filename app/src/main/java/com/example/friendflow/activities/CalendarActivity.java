@@ -34,12 +34,16 @@ public class CalendarActivity extends AppCompatActivity {
         initViews();
         setListeners();
 
+        Calendar today = Calendar.getInstance();
+        updateTextViews(today);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         Intent appointmentIntent = getIntent();
         String title = appointmentIntent.getStringExtra("TITLE");
         showTaskTitle.setText(title);
-
-        Calendar today = Calendar.getInstance();
-        updateTextViews(today);
     }
 
     private void initViews() {

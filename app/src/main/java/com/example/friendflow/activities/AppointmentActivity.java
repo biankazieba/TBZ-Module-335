@@ -34,7 +34,6 @@ public class AppointmentActivity extends AppCompatActivity {
         EditText fromtime = findViewById(R.id.fromtime);
         EditText tilltime = findViewById(R.id.tilltime);
         Button createbutton = findViewById(R.id.createbutton);
-        TextView result = findViewById(R.id.result);
 
         createbutton.setOnClickListener(v -> {
             String title = tasktitle.getText().toString();
