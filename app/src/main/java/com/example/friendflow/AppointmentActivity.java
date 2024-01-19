@@ -2,6 +2,7 @@ package com.example.friendflow;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,6 @@ import android.widget.TextView;
 
 public class AppointmentActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,40 +24,34 @@ public class AppointmentActivity extends AppCompatActivity {
         ImageButton backButton = findViewById(R.id.backButton);
         TableRow openPopup = findViewById(R.id.openPopup);
 
-        backButton.setOnClickListener(v -> {
-            finish();
-        });
+        backButton.setOnClickListener(v -> finish());
 
-        openPopup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup();
-            }
-        });
+        openPopup.setOnClickListener(view -> showPopup());
 
-        EditText tasktitle  = findViewById(R.id.tasktitle);
+        EditText tasktitle = findViewById(R.id.tasktitle);
         EditText taskdate = findViewById(R.id.taskdate);
         EditText fromtime = findViewById(R.id.fromtime);
         EditText tilltime = findViewById(R.id.tilltime);
         Button createbutton = findViewById(R.id.createbutton);
         TextView result = findViewById(R.id.result);
 
-        createbutton.setOnClickListener(new View.OnClickListener() {
+        createbutton.setOnClickListener(v -> {
+            String title = tasktitle.getText().toString();
+            String date = taskdate.getText().toString();
+            String fromTime = fromtime.getText().toString();
+            String tillTime = tilltime.getText().toString();
 
-            @Override
-            public void onClick(View v) {
-                String title = tasktitle.getText().toString();
-                String date = taskdate.getText().toString();
-                String fromTime = fromtime.getText().toString();
-                String tillTime = tilltime.getText().toString();
+            Intent intent = new Intent(AppointmentActivity.this, CalendarActivity.class);
+            intent.putExtra("TITLE", title);
+            intent.putExtra("DATE", date);
+            intent.putExtra("FROM_TIME", fromTime);
+            intent.putExtra("TILL_TIME", tillTime);
+            startActivity(intent);
 
-                result.setText("Title:\t" + title + "\nDate:\t" + date + "Fromtime:\t" + fromTime + "Tilltme:\t" + tillTime);
-
-                tasktitle.setText("");
-                taskdate.setText("");
-                fromtime.setText("");
-                tilltime.setText("");
-            }
+            tasktitle.setText("");
+            taskdate.setText("");
+            fromtime.setText("");
+            tilltime.setText("");
         });
     }
 
@@ -69,16 +62,9 @@ public class AppointmentActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(popupView);
 
-        builder.setPositiveButton("HINZUFÜGEN", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+        builder.setPositiveButton("HINZUFÜGEN", (dialogInterface, i) -> dialogInterface.dismiss());
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-
-
 }
