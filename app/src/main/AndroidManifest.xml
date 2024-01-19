@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,19 +15,34 @@
         android:theme="@style/Theme.FriendFlow"
         tools:targetApi="31">
         <activity
+            android:name=".utils.DateUtils"
+            android:exported="false" />
+        <activity
+            android:name=".calendar.CalendarHelper"
+            android:exported="false" />
+        <activity
+            android:name=".utils.NotificationUtils"
+            android:exported="false" />
+
+        <service
+            android:name=".services.NotificationService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
             android:name=".PopupDialog"
             android:exported="false" />
         <activity
             android:name=".PopupActivity"
             android:exported="false" />
         <activity
-            android:name=".AppointmentActivity"
+            android:name=".activities.AppointmentActivity"
             android:exported="false" />
         <activity
-            android:name=".CalendarActivity"
+            android:name=".activities.CalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

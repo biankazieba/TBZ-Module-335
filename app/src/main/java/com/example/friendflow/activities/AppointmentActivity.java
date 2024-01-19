@@ -1,4 +1,4 @@
-package com.example.friendflow;
+package com.example.friendflow.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TableRow;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.widget.TextView;
+
+import com.example.friendflow.R;
 
 public class AppointmentActivity extends AppCompatActivity {
 
