@@ -30,12 +30,6 @@
             android:exported="true" />
 
         <activity
-            android:name=".PopupDialog"
-            android:exported="false" />
-        <activity
-            android:name=".PopupActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.AppointmentActivity"
             android:exported="false" />
         <activity
