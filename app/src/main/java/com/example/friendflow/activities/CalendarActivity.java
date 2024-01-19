@@ -20,6 +20,7 @@ public class CalendarActivity extends AppCompatActivity {
 
     private TextView dateTextView;
     private TextView weekdayTextView;
+    private TextView showTaskTitle;
     private NotificationService notificationService;
 
     @Override
@@ -30,45 +31,41 @@ public class CalendarActivity extends AppCompatActivity {
         notificationService = new NotificationService(this);
         NotificationUtils.createNotificationChannel(this);
 
+        initViews();
+        setListeners();
+
         Intent appointmentIntent = getIntent();
         String title = appointmentIntent.getStringExtra("TITLE");
-        String date = appointmentIntent.getStringExtra("DATE");
-        String fromTime = appointmentIntent.getStringExtra("FROM_TIME");
-        String tillTime = appointmentIntent.getStringExtra("TILL_TIME");
+        showTaskTitle.setText(title);
 
+        Calendar today = Calendar.getInstance();
+        updateTextViews(today);
+    }
+
+    private void initViews() {
         ImageButton backButton = findViewById(R.id.backButton);
         dateTextView = findViewById(R.id.date);
         weekdayTextView = findViewById(R.id.weekday);
         CalendarView calendarView = findViewById(R.id.calendarView);
-        TextView showtasktitle = findViewById(R.id.showtasktitle);
+        showTaskTitle = findViewById(R.id.showtasktitle);
 
-        showtasktitle.setText(title);
+        ImageButton addButton = findViewById(R.id.addButton);
+        Button notifyButton = findViewById(R.id.notify);
 
         backButton.setOnClickListener(v -> finish());
 
-        ImageButton button = findViewById(R.id.addButton);
-
         Intent intent = new Intent(CalendarActivity.this, AppointmentActivity.class);
+        addButton.setOnClickListener(v -> startActivity(intent));
 
-        button.setOnClickListener(v -> {
-            startActivity(intent);
-        });
+        notifyButton.setOnClickListener(v -> sendNotification());
+    }
 
-        Calendar today = Calendar.getInstance();
-        updateTextViews(today);
-
+    private void setListeners() {
+        CalendarView calendarView = findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
             Calendar selectedDate = Calendar.getInstance();
             selectedDate.set(year, month, dayOfMonth);
             updateTextViews(selectedDate);
-        });
-
-        Button notifyButton = findViewById(R.id.notify);
-        notifyButton.setOnClickListener(v -> {
-            String notificationTitle = "FRIENDFLOW";
-            String notificationText = "Heute könnt ihr etwas zusammen unternehmen!";
-            NotificationUtils.createNotificationBuilder(this, notificationTitle, notificationText);
-            notificationService.sendNotification(notificationTitle, notificationText);
         });
     }
 
@@ -79,5 +76,12 @@ public class CalendarActivity extends AppCompatActivity {
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         String weekday = weekdays[dayOfWeek - 1];
         weekdayTextView.setText(weekday);
+    }
+
+    private void sendNotification() {
+        String notificationTitle = "FRIENDFLOW";
+        String notificationText = "Heute könnt ihr etwas zusammen unternehmen!";
+        NotificationUtils.createNotificationBuilder(this, notificationTitle, notificationText);
+        notificationService.sendNotification(notificationTitle, notificationText);
     }
 }
